@@ -9,8 +9,7 @@
 </head>
 <body>
     <form>
-        <svg viewBox="0 0 382 515" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M382 426.5C382 525.359 293.434 514 188.5 514C83.5659 514 0 525.359 0 426.5C0 327.641 83.5659 156 188.5 156C293.434 156 382 327.641 382 426.5Z" fill="#F39898"/>
+        <svg id="head" viewBox="0 0 382 515" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M120.5 66C120.5 90.0244 120.577 90 96 90C71.4233 90 27.5 67.5244 27.5 43.5C27.5 19.4756 47.4233 0 72 0C96.5767 0 120.5 41.9756 120.5 66Z" fill="#FFC5C5"/>
             <path d="M112.5 63C112.5 83.0203 112.563 83 92.2151 83C71.8666 83 35.5 64.2703 35.5 44.25C35.5 24.2297 51.9957 8 72.3441 8C92.6925 8 112.5 42.9797 112.5 63Z" fill="#F39898"/>
             <path d="M283.5 93C259.476 93 259.5 93.0767 259.5 68.5C259.5 43.9233 281.976 -2.95158e-06 306 -1.90145e-06C330.024 -8.51306e-07 349.5 19.9233 349.5 44.5C349.5 69.0767 307.524 93 283.5 93Z" fill="#FFC5C5"/>
@@ -27,6 +26,9 @@
             <circle id="eye-left" cx="134.5" cy="143" r="13" fill="#6C472B" fill-opacity="0.7"/>
             <circle id="eye-right" cx="241.5" cy="143" r="13" fill="#6C472B" fill-opacity="0.7"/>
         </svg>  
+        <svg class="body" viewBox="0 0 382 515" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="body" d="M382 426.5C382 525.359 293.434 514 188.5 514C83.5659 514 0 525.359 0 426.5C0 327.641 83.5659 156 188.5 156C293.434 156 382 327.641 382 426.5Z" fill="#F39898"/>
+        </svg>
         <label>
             <span>email</span><br />
             <input id="email-input" type="email" placeholder="email">
@@ -34,15 +36,21 @@
     </form>
 </body>
 <script type="text/javascript">
+    if (document.getElementById('email-input').value.length === 0) {
+        document.getElementById('head').style.animation = "rotateHead 1s ease infinite"
+        // document.getElementById('body').style.animation = "rotateBody 1s ease infinite"
+    }
     document.getElementById('email-input').onkeydown = function() {
         let length = document.getElementById('email-input').value.length
+        document.getElementById('head').style.animation = "none"
+        if (length === 0) document.getElementById('head').style.animation = "rotateHead 1s ease infinite"
+        else document.getElementById('head').style.animation = "none"
         if (length > 37) length = 37
         document.getElementById('eye-left').style.transform = "translateY('-25px')"
         document.getElementById('eye-right').style.transform = "translateY('-25px')"
 
         document.getElementById('eye-left').style.transform = `translateX(${(-20 + (length * 1)).toString() + 'px'})`
         document.getElementById('eye-right').style.transform = `translateX(${(-20 + (length * 1)).toString() + 'px'})`
-
     }
 </script>
 </html>
