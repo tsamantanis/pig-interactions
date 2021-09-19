@@ -24,8 +24,8 @@
             <path d="M134.5 87.5C155.888 87.5 173.306 104.5 173.98 125.724C173.444 125.176 172.675 124.414 171.696 123.508C169.659 121.621 166.711 119.105 163.068 116.589C155.792 111.562 145.691 106.5 134.5 106.5C123.309 106.5 113.208 111.562 105.932 116.589C102.289 119.105 99.341 121.621 97.3036 123.508C96.3254 124.414 95.5563 125.176 95.0202 125.724C95.6936 104.5 113.112 87.5 134.5 87.5Z" fill="#FFC5C5" stroke="#F39898"/>
             <circle cx="241.5" cy="127" r="40" fill="white"/>
             <path d="M241.5 87.5C262.888 87.5 280.306 104.5 280.98 125.724C280.444 125.176 279.675 124.414 278.696 123.508C276.659 121.621 273.711 119.105 270.068 116.589C262.792 111.562 252.691 106.5 241.5 106.5C230.309 106.5 220.208 111.562 212.932 116.589C209.289 119.105 206.341 121.621 204.304 123.508C203.325 124.414 202.556 125.176 202.02 125.724C202.694 104.5 220.112 87.5 241.5 87.5Z" fill="#FFC5C5" stroke="#F39898"/>
-            <circle cx="134.5" cy="143" r="13" fill="#6C472B" fill-opacity="0.7"/>
-            <circle cx="241.5" cy="143" r="13" fill="#6C472B" fill-opacity="0.7"/>
+            <circle id="eye-left" cx="134.5" cy="143" r="13" fill="#6C472B" fill-opacity="0.7"/>
+            <circle id="eye-right" cx="241.5" cy="143" r="13" fill="#6C472B" fill-opacity="0.7"/>
         </svg>  
         <label>
             <span>email</span><br />
@@ -35,7 +35,14 @@
 </body>
 <script type="text/javascript">
     document.getElementById('email-input').onkeydown = function() {
-        console.log(document.getElementById('email-input').value.length)
+        let length = document.getElementById('email-input').value.length
+        if (length > 37) length = 37
+        document.getElementById('eye-left').style.transform = "translateY('-25px')"
+        document.getElementById('eye-right').style.transform = "translateY('-25px')"
+
+        document.getElementById('eye-left').style.transform = `translateX(${(-20 + (length * 1)).toString() + 'px'})`
+        document.getElementById('eye-right').style.transform = `translateX(${(-20 + (length * 1)).toString() + 'px'})`
+
     }
 </script>
 </html>
