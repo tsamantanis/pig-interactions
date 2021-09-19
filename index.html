@@ -29,8 +29,13 @@
         </svg>  
         <label>
             <span>email</span><br />
-            <input type="email" placeholder="email">
+            <input id="email-input" type="email" placeholder="email">
         </label>
     </form>
 </body>
+<script type="text/javascript">
+    document.getElementById('email-input').onkeydown = function() {
+        console.log(document.getElementById('email-input').value.length)
+    }
+</script>
 </html>
