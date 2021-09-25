@@ -16,18 +16,49 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10em;
+}
+
+hr {
+    width: 500px;
 }
 
 svg {
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 300px;
+    width: 400px;
+    max-width: 600px;
     margin-bottom: -50%;
     z-index: 0;
+}
+
+.pig-with-hands {
+    max-width: 800px;
+    width: 600px;
+    margin-bottom: -35%;
 }
 
 .body {
     margin-top: -80%;
     z-index: -1;
+}
+
+
+.pig-hands {
+    max-width: 800px;
+    width: 600px;
+    margin-bottom: -35%;
+    margin-top: -55%;
+    z-index: -1;
+}
+
+#hand-right {
+    transform: none;
+    transition-duration: 2s;
+}
+
+#hand-left {
+    transform: none;
+    transition-duration: 2s;
 }
 
 input, label {
@@ -52,6 +83,7 @@ input {
     border: 2px solid rgba(40, 40, 40, 0.35);
     outline: none;
     z-index: 1;
+    margin-bottom: 0.5rem;
 }
 
 @keyframes rotateHead {
@@ -72,5 +104,19 @@ input {
     75% {
         transform: rotate(2.5deg);
         transform-origin: top;
+    }
+}
+
+@keyframes rotateHandLeft {
+    to {
+        transform: rotate(30deg);
+        transform-origin: bottom;
+    }
+}
+
+@keyframes rotateHandRight {
+    to {
+        transform: rotate(-30deg);
+        transform-origin: bottom;
     }
 }
